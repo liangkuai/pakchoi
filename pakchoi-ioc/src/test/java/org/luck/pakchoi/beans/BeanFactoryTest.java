@@ -16,7 +16,8 @@ public class BeanFactoryTest {
         BeanFactory beanFactory = new BeanFactory();
 
         // 2. 注册 bean
-        BeanDefinition beanDefinition = new BeanDefinition(new HelloService());
+        BeanDefinition beanDefinition = new BeanDefinition();
+        beanDefinition.setBeanClassName("org.luck.pakchoi.HelloService");
         beanFactory.registerBeanDefinition("helloService", beanDefinition);
 
         // 3. 获取 bean

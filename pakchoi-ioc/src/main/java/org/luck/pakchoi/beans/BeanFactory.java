@@ -18,6 +18,17 @@ public class BeanFactory {
 
 
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) {
+        Object bean = null;
+        try {
+            bean = beanDefinition.getBeanClass().newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        beanDefinition.setBean(bean);
+
         beanDefinitionMap.put(name, beanDefinition);
     }
 }
