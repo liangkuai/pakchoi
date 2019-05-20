@@ -12,7 +12,7 @@ public class BeanDefinition {
 
     private Class beanClass;
 
-    private PropertyValues propertyValues;
+    private PropertyValues propertyValues = new PropertyValues();
 
 
     public BeanDefinition() {
