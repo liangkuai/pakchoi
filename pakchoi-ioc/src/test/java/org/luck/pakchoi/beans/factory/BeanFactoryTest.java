@@ -29,9 +29,33 @@ public class BeanFactoryTest {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
 
-        // 4. 获取 bean
+        // 4. 获取 bean，延迟初始化（懒加载）
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         helloService.hello();
 
+    }
+
+
+    @Test
+    public void preInstantiateTest() throws Exception {
+
+        // 1. 初始化 bean factory
+        BeanFactory beanFactory = new BeanFactory();
+
+        // 2. 读取配置，生成 BeanDefinition 对象
+        XmlBeanDefinitionReader xmlReader = new XmlBeanDefinitionReader(new ResourceLoader());
+        xmlReader.loadBeanDefinitions("ioc.xml");
+
+        // 3. 注册 bean
+        for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlReader.getRegistry().entrySet()) {
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+        }
+
+        // 4. 预先初始化单例 bean
+        beanFactory.preInstantiateSingletons();
+
+        // 5. 获取 bean
+        HelloService helloService = (HelloService) beanFactory.getBean("helloService");
+        helloService.hello();
     }
 }
