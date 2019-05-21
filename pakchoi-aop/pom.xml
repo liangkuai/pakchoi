@@ -4,17 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>pakchoi</artifactId>
         <groupId>org.luck</groupId>
+        <artifactId>pakchoi</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>pakchoi-ioc</artifactId>
+    <artifactId>pakchoi-aop</artifactId>
 
     <dependencies>
         <dependency>
+            <groupId>org.luck</groupId>
+            <artifactId>pakchoi-ioc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
         </dependency>
     </dependencies>
 
