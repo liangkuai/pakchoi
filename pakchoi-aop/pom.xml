@@ -11,6 +11,11 @@
 
     <artifactId>pakchoi-aop</artifactId>
 
+    <properties>
+        <aopalliance.version>1.0</aopalliance.version>
+        <aspectj.version>1.6.11</aspectj.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.luck</groupId>
@@ -24,6 +29,12 @@
         <dependency>
             <groupId>aopalliance</groupId>
             <artifactId>aopalliance</artifactId>
+            <version>${aopalliance.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 
