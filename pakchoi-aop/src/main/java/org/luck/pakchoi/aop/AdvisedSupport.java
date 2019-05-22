@@ -8,10 +8,13 @@ import org.aopalliance.intercept.MethodInterceptor;
  */
 public class AdvisedSupport {
 
+    /**
+     * 被代理对象
+     */
     private TargetSource targetSource;
 
     /**
-     * Advice 逻辑
+     * advice
      */
     private MethodInterceptor methodInterceptor;
 

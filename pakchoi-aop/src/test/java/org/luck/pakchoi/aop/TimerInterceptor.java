@@ -4,7 +4,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
- * 拦截器
+ * advice
  *
  * @author liukai
  * @date 2019-05-21

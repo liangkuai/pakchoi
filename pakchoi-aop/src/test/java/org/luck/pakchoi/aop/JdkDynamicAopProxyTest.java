@@ -38,10 +38,11 @@ public class JdkDynamicAopProxyTest {
         TargetSource targetSource = new TargetSource(helloService, HelloService.class);
         advisedSupport.setTargetSource(targetSource);
 
-        // 设置拦截器（advice）
+        // 设置 advice
         TimerInterceptor timerInterceptor = new TimerInterceptor();
         advisedSupport.setMethodInterceptor(timerInterceptor);
 
+        // 生成代理对象
         JdkDynamicAopProxy jdkDynamicAopProxy = new JdkDynamicAopProxy(advisedSupport);
         HelloService helloServiceProxy = (HelloService) jdkDynamicAopProxy.getProxy();
 

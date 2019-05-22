@@ -6,7 +6,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 /**
- * 切点
+ * join point
  *
  * @author liukai
  * @date 2019-05-21
