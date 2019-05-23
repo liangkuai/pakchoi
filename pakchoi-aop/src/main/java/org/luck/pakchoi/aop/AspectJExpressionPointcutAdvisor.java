@@ -8,7 +8,7 @@ import org.aopalliance.aop.Advice;
  */
 public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
-    private AspectJExpressionPointcut pointcut;
+    private AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
 
     private Advice advice;
 
@@ -20,11 +20,15 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
     @Override
     public Pointcut getPointcut() {
-        return null;
+        return pointcut;
     }
 
     @Override
     public Advice getAdvice() {
-        return null;
+        return advice;
+    }
+
+    public void setAdvice(Advice advice) {
+        this.advice = advice;
     }
 }
