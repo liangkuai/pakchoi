@@ -18,7 +18,7 @@ public class BeanFactoryTest {
     public void getBeanTest() throws Exception {
 
         // 1. 初始化 bean factory
-        BeanFactory beanFactory = new BeanFactory();
+        AbstractBeanFactory beanFactory = new AbstractBeanFactory();
 
         // 2. 读取配置，生成 BeanDefinition 对象
         XmlBeanDefinitionReader xmlReader = new XmlBeanDefinitionReader(new ResourceLoader());
@@ -40,7 +40,7 @@ public class BeanFactoryTest {
     public void preInstantiateTest() throws Exception {
 
         // 1. 初始化 bean factory
-        BeanFactory beanFactory = new BeanFactory();
+        AbstractBeanFactory beanFactory = new AbstractBeanFactory();
 
         // 2. 读取配置，生成 BeanDefinition 对象
         XmlBeanDefinitionReader xmlReader = new XmlBeanDefinitionReader(new ResourceLoader());
