@@ -30,7 +30,7 @@ public class BeanFactoryTest {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }
 
-        // 4. 获取 bean
+        // 4. 获取 bean，延迟初始化（懒加载）
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         helloService.hello();
 
