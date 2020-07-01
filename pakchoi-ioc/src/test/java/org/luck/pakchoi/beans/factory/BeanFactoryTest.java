@@ -3,8 +3,10 @@ package org.luck.pakchoi.beans.factory;
 import org.junit.Test;
 import org.luck.pakchoi.HelloService;
 import org.luck.pakchoi.beans.BeanDefinition;
-import org.luck.pakchoi.beans.PropertyValue;
-import org.luck.pakchoi.beans.PropertyValues;
+import org.luck.pakchoi.beans.io.ResourceLoader;
+import org.luck.pakchoi.beans.xml.XmlBeanDefinitionReader;
+
+import java.util.Map;
 
 /**
  * @author liukai
@@ -13,24 +15,22 @@ import org.luck.pakchoi.beans.PropertyValues;
 public class BeanFactoryTest {
 
     @Test
-    public void getBeanTest() {
+    public void getBeanTest() throws Exception {
 
-        // 1. 初始化 bean factory
+        // 1. 创建 IoC 容器 BeanFactory 对象
         BeanFactory beanFactory = new BeanFactory();
 
-        // 2. 初始化 bean definition
-        BeanDefinition beanDefinition = new BeanDefinition();
-        beanDefinition.setBeanClassName("org.luck.pakchoi.HelloService");
+        // 2. 创建 XmlBeanDefinitionReader 对象
+        // 读取 xlm 配置文件，解析并生成 BeanDefinition 对象
+        XmlBeanDefinitionReader xmlReader = new XmlBeanDefinitionReader(new ResourceLoader());
+        xmlReader.loadBeanDefinitions("ioc.xml");
 
-        // 3.设置 bean 的属性
-        PropertyValues propertyValues = new PropertyValues();
-        propertyValues.addPropertyValue(new PropertyValue("text", "Hello world"));
-        beanDefinition.setPropertyValues(propertyValues);
+        // 3. 将 Reader 中的 BeanDefinition 对象注册到 IoC 容器中
+        for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlReader.getRegistry().entrySet()) {
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+        }
 
-        // 4. 注册 bean
-        beanFactory.registerBeanDefinition("helloService", beanDefinition);
-
-        // 5. 获取 bean
+        // 4. 获取 bean
         HelloService helloService = (HelloService) beanFactory.getBean("helloService");
         helloService.hello();
 
