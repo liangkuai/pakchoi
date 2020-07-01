@@ -1,27 +1,34 @@
 package org.luck.pakchoi.beans;
 
 /**
- * 对于 bean 中有属性引用其他 bean 的情况，
- * 使用 BeanReference 包装所引用的 bean name
- *
  * @author liukai
  * @date 2019-05-20
  */
 public class BeanReference {
 
-    private String beanName;
+    private String name;
+
+    private Object bean;
 
 
-    public BeanReference(String beanName) {
-        this.beanName = beanName;
+    public BeanReference(String name) {
+        this.name = name;
     }
 
 
-    public String getBeanName() {
-        return beanName;
+    public String getName() {
+        return name;
     }
 
-    public void setBeanName(String beanName) {
-        this.beanName = beanName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Object getBean() {
+        return bean;
+    }
+
+    public void setBean(Object bean) {
+        this.bean = bean;
     }
 }

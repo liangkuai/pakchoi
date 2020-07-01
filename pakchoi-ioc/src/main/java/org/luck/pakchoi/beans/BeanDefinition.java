@@ -1,8 +1,6 @@
 package org.luck.pakchoi.beans;
 
 /**
- * 存储 bean 的实例和元数据，对 bean 做了一层包装
- *
  * @author liukai
  * @date 2019-05-05
  */
@@ -14,9 +12,6 @@ public class BeanDefinition {
 
     private Class beanClass;
 
-    /**
-     * bean 的属性和值
-     */
     private PropertyValues propertyValues = new PropertyValues();
 
 
