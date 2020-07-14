@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * xml 配置文件形式的 BeanDefinition 读取器
+ *
  * @author liukai
  * @date 2020-07-01
  */
